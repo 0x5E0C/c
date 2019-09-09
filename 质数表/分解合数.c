@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main()
+{
+	int times,number,begin,i,a[100],temp=0;
+	printf("输入数字:");
+	scanf("%d",&number);
+	begin=number;
+	times=number/2;
+	for(i=2;i<=times;i++)
+	{
+		if(number%i==0)
+		{
+			a[temp]=i;
+			temp++;
+			number=number/i;
+			i=1;
+		}
+	}
+	if(begin==number)
+	{
+		printf("此数为质数!\n");
+	}
+	else
+	{	
+		printf("%d=",begin);
+		a[temp]=number;
+		if(number==1)
+		{
+			temp=temp-1;
+		}
+		for(i=0;i<temp;i++)
+		{
+			printf("%d",a[i]);
+			printf("*");
+		}
+		printf("%d\n",a[temp]);
+	}
+}

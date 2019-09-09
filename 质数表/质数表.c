@@ -1,0 +1,45 @@
+#include<stdio.h>
+void main()
+{
+	int a[100000],i,time,temp,count=0,begin,last;
+	for(i=0;i<100000;i++)
+	{
+		if((i+1)%2==0)
+		{
+			a[i]=0;
+		}
+		else
+		{
+			a[i]=i+1;
+		}
+	}
+	for(i=1;i<100000;i++)
+	{
+		temp=a[i]/2;
+		if(temp/1!=0)
+		{
+			for(time=2;time<temp;time++)
+			{
+				if(a[i]%time==0)
+				{
+					a[i]=0;
+				}
+			}
+		}
+	}
+	a[0]=2;
+	printf("起始数字:");
+	scanf("%d",&begin);
+	printf("终止数字:");
+	scanf("%d",&last);
+	printf("%d到%d之间的质数有:\n",begin,last);
+	for(i=begin-1;i<last;i++)
+	{
+		if(a[i]!=0)
+		{
+			printf("%d\n",a[i]);
+			count++;
+		}
+	}
+	printf("%d到%d有%d个质数\n",begin,last,count);
+}
